@@ -121,18 +121,21 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         String topAsterisks = "\n*****";
         String bottomAsterisks = "*****";
-        for (HashMap<String, String> job : someJobs) {
-            System.out.println(topAsterisks);
-            ArrayList<String> printJob = new ArrayList<>();
-            for (Map.Entry<String, String> listItem : job.entrySet()) {
-                printJob.add(listItem.getKey() + ": " + listItem.getValue());
+
+        if (someJobs.size() == 0) {
+            System.out.println("No Results");
+        } else {
+            for (HashMap<String, String> job : someJobs) {
+                ArrayList<String> printJob = new ArrayList<>();
+                System.out.println(topAsterisks);
+                for (Map.Entry<String, String> listItem : job.entrySet()) {
+                    printJob.add(listItem.getKey() + ": " + listItem.getValue());
+                }
+                for (int i = 0; i < printJob.size(); i++) {
+                    System.out.println(printJob.get(i));
+                }
+                System.out.println(bottomAsterisks);
             }
-            for (int i = 0; i < printJob.size(); i ++) {
-                System.out.println(printJob.get(i));
-            }
-            System.out.println(bottomAsterisks);
-            //System.out.println(asterisks + printJob + "\n"+ asterisks);
         }
-        //System.out.println("printJobs is not implemented yet");
     }
 }
